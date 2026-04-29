@@ -403,6 +403,7 @@ All deposits are non-refundable.</p>
         <div class="choice-row">
           <button class="choice" onclick="selectStructure('Natural')">Natural Nails ($35)</button>
           <button class="choice" onclick="selectStructure('Overlay')">Overlay ($50+)</button>
+          <button class="choice" onclick="selectStructure('Fill')">Fill ($50+)</button>
           <button class="choice" onclick="selectStructure('Extension')">Extension</button>
         </div>
       `;
@@ -432,6 +433,7 @@ All deposits are non-refundable.</p>
     function calculateDemo(){
       let base = 35;
       if(structureChoice === "Overlay") base = 50;
+      if(structureChoice === "Fill") base = 50;
       if(extensionType === "Gel X") base = 60;
       if(extensionType === "UV Gel Set") base = 70;
 
@@ -452,11 +454,11 @@ All deposits are non-refundable.</p>
       // Replace the backup links below with each service's own Square /services/XXXXX link when you copy them from Square.
       const serviceLinks = {
         regularManicure: squareBookingLink,
-        gelManicure: squareBookingLink,
-        overlay: squareBookingLink,
-        gelX: squareBookingLink,
-        uvGelSet: squareBookingLink,
-        headSpa: "https://book.squareup.com/appointments/5zxx7vfvuqi1kx/location/LBYNRR57Y6SYX/services/PQIRS7R2CQMBHSM425RZUNMH"
+        gelManicure: "https://book.squareup.com/appointments/5zxx7vfvuqi1kx/location/LBYNRR57Y6SYX/services/FYF26B5MTOOGBW4KWVGKO6IR",
+        overlay: "https://book.squareup.com/appointments/5zxx7vfvuqi1kx/location/LBYNRR57Y6SYX/services/CY7PQKMVTLTPELXYAQZVKPDR",
+        gelX: "https://book.squareup.com/appointments/5zxx7vfvuqi1kx/location/LBYNRR57Y6SYX/services/WTYNIJKVP5PUVR622ADYYLGR",
+        uvGelSet: "https://book.squareup.com/appointments/5zxx7vfvuqi1kx/location/LBYNRR57Y6SYX/services/SB7STIMADSW73K63IYWV2QS4",
+        headSpa: "https://book.squareup.com/appointments/5zxx7vfvuqi1kx/location/LBYNRR57Y6SYX/services"
       };
 
       // Smart booking match based on the customer's estimate choices.
@@ -478,6 +480,10 @@ All deposits are non-refundable.</p>
       else if(structure === "Overlay"){
         bookingLink = serviceLinks.overlay;
         matchedServiceName = "Overlay";
+      }
+      else if(structure === "Fill"){
+        bookingLink = serviceLinks.overlay;
+        matchedServiceName = "Fill";
       }
       else if(structure === "Natural"){
         bookingLink = serviceLinks.gelManicure;
