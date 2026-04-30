@@ -222,7 +222,7 @@
       </div>
       <div class="grid">
         <div class="card"><h3>Manicure</h3><p>Regular, French, Color Gel, Dip Powder.</p><div class="price">From $20</div></div>
-        <div class="card"><h3>Extensions</h3><p>Gel X and Build Gel Set for longer nail looks.</p><div class="price">Gel X $60+ · Build $70+</div></div>
+        <div class="card"><h3>Extensions</h3><p>Gel X and Builder Gel Set for longer nail looks.</p><div class="price">Gel X $60+ · Builder $70+</div></div>
         <div class="card"><h3>Overlay</h3><p>Natural nail strengthening without extension.</p><div class="price">$50+</div></div>
         <div class="card"><h3>Head Spa</h3><p>Deep cleansing, hydration, Chinese medicine scalp care.</p><div class="price">From $70</div></div>
         <div class="card"><h3>Pedicure</h3><p>Regular to Volcano Luxury spa pedicure.</p><div class="price">$35–$115</div></div>
@@ -243,7 +243,7 @@
         <div class="card"><h3>Gel Manicure</h3><p>Longer-lasting shine on natural nails. Great for simple designs, French, chrome, and ombre.</p><div class="price">$35+</div></div>
         <div class="card"><h3>Overlay</h3><p>Strengthening layer over your natural nails without adding length.</p><div class="price">$50+</div></div>
         <div class="card"><h3>Gel X</h3><p>Soft gel extension tips for added length and shape.</p><div class="price">$60+</div></div>
-        <div class="card"><h3>Build Gel Set</h3><p>Stronger extension service for structure, durability, and longer sets.</p><div class="price">$70+</div></div>
+        <div class="card"><h3>Builder Gel Set</h3><p>Stronger extension service for structure, durability, and longer sets.</p><div class="price">$70+</div></div>
         <div class="card"><h3>Head Spa</h3><p>Relaxing scalp treatment designed for cleansing, hydration, and stress relief.</p><div class="price">$70+</div></div>
         <div class="card"><h3>Pedicure</h3><p>From regular pedicure to luxury spa pedicure experiences.</p><div class="price">$35–$115</div></div>
         <div class="card"><h3>Waxing</h3><p>Professional waxing services for brows, lip, underarm, bikini, Brazilian, and more.</p><div class="price">$10+</div></div>
@@ -417,7 +417,7 @@ All deposits are non-refundable.</p>
           <strong>Step 3: Select Extension Type</strong>
           <div class="choice-row">
             <button class="choice" onclick="selectExtension('Gel X')">Gel X ($60+)</button>
-            <button class="choice" onclick="selectExtension('Build Gel Set')">Build Gel Set ($70+)</button>
+            <button class="choice" onclick="selectExtension('Builder Gel Set')">Builder Gel Set ($70+)</button>
           </div>
         `;
         return;
@@ -435,7 +435,7 @@ All deposits are non-refundable.</p>
       if(structureChoice === "Overlay") base = 50;
       if(structureChoice === "Fill") base = 50;
       if(extensionType === "Gel X") base = 60;
-      if(extensionType === "builder Gel Set") base = 70;
+      if(extensionType === "Builder Gel Set") base = 70;
 
       // Demo add-ons. Real version will use OpenAI Vision to identify image details.
       let addons = "Ombre +$15, Design +$15";
@@ -456,6 +456,8 @@ All deposits are non-refundable.</p>
         regularManicure: squareBookingLink,
         gelManicure: "https://book.squareup.com/appointments/5zxx7vfvuqi1kx/location/LBYNRR57Y6SYX/services/FYF26B5MTOOGBW4KWVGKO6IR",
         overlay: "https://book.squareup.com/appointments/5zxx7vfvuqi1kx/location/LBYNRR57Y6SYX/services/CY7PQKMVTLTPELXYAQZVKPDR",
+        // If Square has a separate Fill service link, replace this with your Fill service link.
+        fill: "https://book.squareup.com/appointments/5zxx7vfvuqi1kx/location/LBYNRR57Y6SYX/services/CY7PQKMVTLTPELXYAQZVKPDR",
         gelX: "https://book.squareup.com/appointments/5zxx7vfvuqi1kx/location/LBYNRR57Y6SYX/services/WTYNIJKVP5PUVR622ADYYLGR",
         builderGelSet: "https://book.squareup.com/appointments/5zxx7vfvuqi1kx/location/LBYNRR57Y6SYX/services/SB7STIMADSW73K63IYWV2QS4",
         headSpa: "https://book.squareup.com/appointments/5zxx7vfvuqi1kx/location/LBYNRR57Y6SYX/services"
@@ -473,16 +475,16 @@ All deposits are non-refundable.</p>
         bookingLink = serviceLinks.gelX;
         matchedServiceName = "Gel X Extension";
       }
-      else if(extension === "builder Gel Set"){
+      else if(extension === "Builder Gel Set"){
         bookingLink = serviceLinks.builderGelSet;
-        matchedServiceName = "builder Gel Set";
+        matchedServiceName = "Builder Gel Set";
       }
       else if(structure === "Overlay"){
         bookingLink = serviceLinks.overlay;
         matchedServiceName = "Overlay";
       }
       else if(structure === "Fill"){
-        bookingLink = serviceLinks.overlay;
+        bookingLink = serviceLinks.fill;
         matchedServiceName = "Fill";
       }
       else if(structure === "Natural"){
